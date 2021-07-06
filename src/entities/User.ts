@@ -9,7 +9,7 @@ import {
 import { v4 as uuid } from "uuid";
 
 @Entity("users")
-export class User {
+class User {
   @PrimaryColumn()
   readonly id: string;
 
@@ -18,6 +18,9 @@ export class User {
 
   @Column()
   email: string;
+
+  @Column()
+  admin: boolean;
 
   @CreateDateColumn()
   created_at: Date;
@@ -31,3 +34,5 @@ export class User {
     }
   }
 }
+
+export { User };

@@ -1,19 +1,12 @@
 import "reflect-metadata";
 import express from "express";
 import "./database";
+import { router } from "./routes";
 
 const app = express();
 
-app.get("/", (req,res)=>{
-  return res.json("Bem vindo a api do projeto valoriza!")
-})
+app.use(express.json())
 
-app.get("/test", (req, res) => {
-  return res.send("Olá NLW");
-} )
-
-app.post("/test-post", (req, res) => {
-  return res.json("Adicionado com Sucesso!")
-})
+app.use(router);
 
 app.listen(3000, () => console.log("Server iniciado com sucesso!"));
