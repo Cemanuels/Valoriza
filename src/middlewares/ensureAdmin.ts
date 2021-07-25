@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from "express";
 
-export function EnsureAdmin(
+export function ensureAdmin(
   request: Request,
   response: Response,
   next: NextFunction
@@ -12,6 +12,8 @@ export function EnsureAdmin(
     return next();
   }
 
-  return response.status(401);
+  return response.status(401).json({
+    error: "Unauthorized."
+  });
 
 }

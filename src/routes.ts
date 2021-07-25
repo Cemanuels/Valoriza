@@ -5,6 +5,7 @@ import { CreateTagController } from "./controllers/CreateTagController";
 import { DeleteUserController } from "./controllers/DeleteUserController";
 import { GetTagsController } from "./controllers/GetTagsController";
 import { DeleteTagController } from "./controllers/DeleteTagController";
+import { ensureAdmin } from "./middlewares/ensureAdmin";
 
 export const router = Router();
 
@@ -19,5 +20,5 @@ router.get("/users", getUsersController.handle);
 router.post("/users", createUserController.handle);
 router.delete("/users/:id", deleteUserController.handle);
 router.get("/tags", getTagsController.handle);
-router.post("/tags", createTagController.handle);
+router.post("/tags", ensureAdmin, createTagController.handle);
 router.delete("/tags/:id", deleteTagController.handle);
