@@ -1,13 +1,21 @@
 import { Request, Response } from "express";
 import { CreateUserService } from "../service/CreateUserService";
+import { hash } from "bcryptjs";
 
 class CreateUserController {
   async handle(request: Request, response: Response) {
-    const { name, email, admin } = request.body;
+    const { name, email, password, admin } = request.body;
 
     const createUserService = new CreateUserService();
 
-    const user = await createUserService.execute({ name, email, admin });
+    const passwordHash = await hash(password, 8);
+
+    const user = await createUserService.execute({
+      name,
+      email,
+      password: passwordHash,
+      admin,
+    });
 
     return response.json(user);
   }

@@ -11,7 +11,7 @@ class GetUsersService {
 
     const users = await usersRepository.find();
 
-    return users;
+    return users.map(({password, ...user}) => user);
   }
 }
 
