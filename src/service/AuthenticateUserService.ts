@@ -27,6 +27,8 @@ class AuthenticateUserService {
       throw new Error("Email/password incorrect");
     }
 
+
+    // Gerar token
     const token = sign(
       {
         email: user.email,
@@ -34,7 +36,7 @@ class AuthenticateUserService {
       "67be988f498cd18fb2945aab0b51e031",
       {
         subject: user.id,
-        expiresIn: "",
+        expiresIn: "1d",
       }
     );
 
