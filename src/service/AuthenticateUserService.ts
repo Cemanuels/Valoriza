@@ -12,7 +12,6 @@ class AuthenticateUserService {
   async execute({ email, password }: IAuthenticateUserRequest) {
     const usersRepository = getCustomRepository(UsersRepositories);
 
-    //Verificar se usuário existe
     const user = await usersRepository.findOne({
       email,
     });
@@ -27,8 +26,6 @@ class AuthenticateUserService {
       throw new Error("Email/password incorrect");
     }
 
-
-    // Gerar token
     const token = sign(
       {
         email: user.email,
@@ -40,7 +37,7 @@ class AuthenticateUserService {
       }
     );
 
-    return token;
+    return { token: token };
   }
 }
 
