@@ -8,6 +8,8 @@ import {
 
 import { v4 as uuid } from "uuid";
 
+import { Exclude } from "class-transformer";
+
 @Entity("users")
 class User {
   @PrimaryColumn()
@@ -16,6 +18,7 @@ class User {
   @Column()
   name: string;
 
+  @Exclude()
   @Column()
   password: string;
 
