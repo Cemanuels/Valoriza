@@ -10,7 +10,7 @@
   <img alt="Preview" src="./.github/preview.png">
 </p>
 
-## ✨ Tecnologias
+## ✨ Tecnologies
 
 This project was developed with the following technologies:
 
@@ -32,7 +32,7 @@ Valoriza is a platform to promote recognition among teammates.
 
 Finally, the application will be available at `http://localhost:3000`
 
-## 📄 Licença
+## 📄 License
 
 This project is under the MIT license. See the [LICENSE](LICENSE.md) file for more details.
 

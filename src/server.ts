@@ -27,4 +27,4 @@ app.use(
   }
 );
 
-app.listen(3000, () => console.log("Server iniciado com sucesso!"));
+app.listen(3000, () => console.log("Server started sucessfull! 🚀"));
